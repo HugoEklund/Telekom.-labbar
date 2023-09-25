@@ -1,8 +1,9 @@
-public class EventList{
+public class EventList2
+{
 	
 	private Event list, last;
 	
-	EventList(){
+	EventList2(){
 		list = new Event();
     	last = new Event();
     	list.next = last;

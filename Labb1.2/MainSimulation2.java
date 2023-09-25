@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class MainSimulation extends GlobalSimulation{
+public class MainSimulation2 extends GlobalSimulation{
  
     public static void main(String[] args) throws IOException {
     	Event actEvent;

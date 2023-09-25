@@ -1,6 +1,6 @@
 import java.util.*;
 
-class State extends GlobalSimulation{
+class State2 extends GlobalSimulation{
 	
 	public int numberInQueue = 0, accumulated = 0, noMeasurements = 0;
 	
@@ -8,7 +8,7 @@ class State extends GlobalSimulation{
 
 	Random slump = new Random();
 	
-	State(EventList x){
+	State2(EventList x){
 		myEventList = x;
 	}
 	
