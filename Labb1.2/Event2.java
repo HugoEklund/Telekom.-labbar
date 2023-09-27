@@ -1,6 +1,5 @@
-class Event2
-{
+class Event2{
 	public double eventTime;
 	public int eventType;
-	public Event next;
+	public Event2 next;
 }

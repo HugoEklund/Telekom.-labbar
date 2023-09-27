@@ -1,17 +1,16 @@
 public class EventList2
 {
-	
-	private Event list, last;
+	private Event2 list, last;
 	
 	EventList2(){
-		list = new Event();
-    	last = new Event();
+		list = new Event2();
+    	last = new Event2();
     	list.next = last;
 	}
 	
 	public void InsertEvent(int type, double TimeOfEvent){
- 	Event dummy, predummy;
- 	Event newEvent = new Event();
+ 	Event2 dummy, predummy;
+ 	Event2 newEvent = new Event2();
  	newEvent.eventType = type;
  	newEvent.eventTime = TimeOfEvent;
  	predummy = list;
@@ -24,8 +23,8 @@ public class EventList2
  	newEvent.next = dummy;
  }
 	
-	public Event FetchEvent(){
-		Event dummy;
+	public Event2 FetchEvent(){
+		Event2 dummy;
 		dummy = list.next;
 		list.next = dummy.next;
 		dummy.next = null;
