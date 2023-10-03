@@ -8,18 +8,18 @@ public class MainSimulation extends Global
         Signal actSignal;
         new SignalList();
 		double totMean = 0;
-		ArrayList<QS> queueArray = new ArrayList<QS>();
+		ArrayList<QS> aSysArray = new ArrayList<QS>();
 
 		for (int i = 0; i < 5; i++)
 		{
-			queueArray.add(i, new QS());
+			aSysArray.add(i, new QS());
 		}
 
-		Dispatcher tempDis = new Dispatcher(queueArray, 45);
+		DispatcherSmart aDispatcher = new DispatcherSmart(aSysArray, 45);
 
-		SignalList.SendSignal(READY, tempDis, time);
+		SignalList.SendSignal(READY, aDispatcher, time);
 
-		for (QS i : queueArray)
+		for (QS i : aSysArray)
 		{
 			SignalList.SendSignal(MEASURE, i, time);
 		}
@@ -31,11 +31,11 @@ public class MainSimulation extends Global
             actSignal.destination.TreatSignal(actSignal);
         }
 
-		for(int i = 0; i < queueArray.size(); i++)
+		for(int i = 0; i < aSysArray.size(); i++)
 		{
-			System.out.println("Queue: " + (i+1) + "  Mean: " +  1.0 * queueArray.get(i).accumulated/queueArray.get(i).noMeasurements);
-			totMean += 1.0 * queueArray.get(i).accumulated/queueArray.get(i).noMeasurements;
+			System.out.println("System: " + (i+1) + "  Mean: " +  1.0 * aSysArray.get(i).accumulated/aSysArray.get(i).noMeasurements);
+			totMean += 1.0 * aSysArray.get(i).accumulated/aSysArray.get(i).noMeasurements;
 		}
-		System.out.println("Tot. Mean: " + totMean / queueArray.size());
+		System.out.println("Tot. Mean: " + totMean / aSysArray.size());
     }
 }

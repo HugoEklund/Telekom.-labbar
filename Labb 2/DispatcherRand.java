@@ -1,13 +1,13 @@
 import java.util.*;
 
-public class Dispatcher extends Gen 
+public class DispatcherRand extends Gen 
 {
-    public double lambda;
-    public ArrayList<QS> sendToQueue;
+    private double lambda;
+    private ArrayList<QS> someSystems;
 
-	public Dispatcher(ArrayList<QS> qs, double lambda)
+	public DispatcherRand(ArrayList<QS> qs, double lambda)
 	{
-        this.sendToQueue = qs;
+        this.someSystems = qs;
         this.lambda = lambda;
 	}
     
@@ -18,13 +18,11 @@ public class Dispatcher extends Gen
             case READY:
             {
                 Random slump = new Random();
-                int rngQueue = slump.nextInt(5);
-                SignalList.SendSignal(ARRIVAL, sendToQueue.get(rngQueue), time);
+                int rngSys = slump.nextInt(5);
+                SignalList.SendSignal(ARRIVAL, someSystems.get(rngSys), time);
                 SignalList.SendSignal(READY, this, time + (2.0 / lambda) * slump.nextDouble());
             }
             break;
         }
     }
 }
-
-//hej
