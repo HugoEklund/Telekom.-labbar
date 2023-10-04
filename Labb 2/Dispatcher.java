@@ -13,7 +13,7 @@ public class Dispatcher extends Gen
         sysIndex = 0;
 	}
     
-    public void TreatSignal(Signal x) 
+    public void TreatSignal(Signal x)
     {
         switch (x.signalType) 
         {
