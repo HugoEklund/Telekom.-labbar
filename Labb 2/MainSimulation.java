@@ -15,7 +15,7 @@ public class MainSimulation extends Global
 			aSysArray.add(i, new QS());
 		}
 
-		DispatcherSmart aDispatcher = new DispatcherSmart(aSysArray, 45);
+		Dispatcher aDispatcher = new Dispatcher(aSysArray, 45);
 
 		SignalList.SendSignal(READY, aDispatcher, time);
 

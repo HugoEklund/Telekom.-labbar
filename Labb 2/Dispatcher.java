@@ -1,30 +1,45 @@
 import java.util.*;
 
-public class DispatcherSmart extends Gen
+public class Dispatcher extends Gen 
 {
     private double lambda;
     private ArrayList<QS> someSystems;
+    private int sysIndex;
 
-	public DispatcherSmart(ArrayList<QS> qs, double lambda)
+	public Dispatcher(ArrayList<QS> qs, double lambda)
 	{
         this.someSystems = qs;
         this.lambda = lambda;
+        sysIndex = 0;
 	}
     
-    public void TreatSignal(Signal x)
+    public void TreatSignal(Signal x) 
     {
         switch (x.signalType) 
         {
             case READY:
             {
-                SignalList.SendSignal(ARRIVAL, someSystems.get(findOptimalSys()), time);
+                SignalList.SendSignal(ARRIVAL, someSystems.get(smartSys()), time);
                 SignalList.SendSignal(READY, this, time + (2.0 / lambda) * slump.nextDouble());
             }
             break;
         }
     }
 
-    public int findOptimalSys() 
+    public int rngSys() 
+    {
+        Random slump = new Random();
+        int rngSys = slump.nextInt(5);
+        return rngSys;
+    }
+
+    public int seqSys()
+    {
+        sysIndex = (sysIndex + 1) % someSystems.size();
+        return sysIndex;
+    }
+
+    public int smartSys() 
     {
         int minJobs = Integer.MAX_VALUE;
         int minIndex = 0;
@@ -37,7 +52,6 @@ public class DispatcherSmart extends Gen
                 minIndex = i;
             }
         }
-
         return minIndex;
     }
 }
