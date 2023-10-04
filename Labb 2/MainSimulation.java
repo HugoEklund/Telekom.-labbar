@@ -31,7 +31,7 @@ public class MainSimulation extends Global
             actSignal.destination.TreatSignal(actSignal);
         }
 
-		for(int i = 0; i < aSysArray.size(); i++)
+		for (int i = 0; i < aSysArray.size(); i++)
 		{
 			System.out.println("System: " + (i+1) + "  Mean: " +  1.0 * aSysArray.get(i).accumulated/aSysArray.get(i).noMeasurements);
 			totMean += 1.0 * aSysArray.get(i).accumulated/aSysArray.get(i).noMeasurements;
