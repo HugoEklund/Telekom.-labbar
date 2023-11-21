@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Dispatcher extends Gen 
-{ //hej
+{
     private double lambda;
     private ArrayList<QS> someSystems;
     private int sysIndex;
@@ -39,7 +39,7 @@ public class Dispatcher extends Gen
         return sysIndex;
     }
 
-    public int smartSys() 
+    public int smartSys()
     {
         int minJobs = Integer.MAX_VALUE;
         int minIndex = 0;
